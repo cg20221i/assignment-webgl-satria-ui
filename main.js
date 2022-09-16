@@ -58,17 +58,34 @@ var vertices = [
     -0.05, -0.15,
     -0.05, 0.24,
     -0.15, 0.13,
-    
-    // -0.68, 0.82, 
-    // -0.355, 0.88, 
-    // -0.18, 0.868, 
-    // -0.305, 0.572, 
-    // -0.13, 0.56, 
-    // -0.16, 0.488, 
-    // -0.7, 0.528, 
-    // -0.67, 0.594, 
-    // -0.49, 0.582, 
-    // -0.395, 0.796,
+
+    //character I
+    0.35, -0.3,
+    0.45, -0.3,
+    0.45, 0.3,
+    0.35,0.2,
+    0.4,0.0,
+    //bulet di karakter I
+    0.4, 0.35,
+    0.37, 0.4,
+    0.43, 0.4,
+    0.4, 0.45,
+
+    //character A outer
+    0.55,-0.3,
+    0.63,-0.3,
+    0.69, -0.05,
+    0.74, -0.05,
+    0.8, -0.3,
+    0.88, -0.3,
+    0.8, 0.3,
+    0.64, 0.3,
+
+    //character A inner
+    0.69,0.05,
+    0.74,0.05,
+    0.73,0.15,
+    0.7,0.15,
 ];
 
 // Create a linked-list for storing the vertices data in the GPU realm
@@ -80,7 +97,7 @@ gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 var vertexShaderCode = `
     attribute vec2 aPosition;
     void main () {
-        gl_PointSize = 10.0;
+        gl_PointSize = 3.0;
         gl_Position = vec4(aPosition, 0.0, 1.0);
         // gl_Position is the final destination for storing
         //  positional data for the rendered vertex
@@ -125,7 +142,17 @@ gl.clearColor(1.0, 0.75,   0.79,  1.0);
             //Red, Green, Blue, Alpha
 gl.clear(gl.COLOR_BUFFER_BIT);
 
+//draw 0 
 gl.drawArrays(gl.LINE_LOOP, 0,8);
 gl.drawArrays(gl.LINE_LOOP, 8,4);
 // gl.drawArrays(gl.POINTS, 12,4);
-gl.drawArrays(gl.LINE_LOOP, 16, 11)
+//draw 1
+gl.drawArrays(gl.LINE_LOOP, 16, 11);
+
+//draw I
+gl.drawArrays(gl.TRIANGLE_FAN, 27,5);
+gl.drawArrays(gl.TRIANGLE_STRIP, 32, 4);
+//draw A
+gl.drawArrays(gl.LINE_LOOP, 36, 8);
+gl.drawArrays(gl.LINE_LOOP, 44, 4);
+
