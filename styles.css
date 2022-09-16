@@ -4,3 +4,12 @@ canvas {
     left: 50%;
     transform: translate(-50%, -50%); 
 }
+body  {
+    /* background-color: #cccccc; */
+    background-image: url("https://images6.alphacoders.com/110/1109223.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  
