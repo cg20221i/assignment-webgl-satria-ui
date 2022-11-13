@@ -33,10 +33,6 @@ function main() {
   // Put geometry data into buffer
   setColors(gl);
 
-  function radToDeg(r) {
-    return r * 180 / Math.PI;
-  }
-
   function degToRad(d) {
     return d * Math.PI / 180;
   }
@@ -49,34 +45,27 @@ function main() {
 
   drawScene();
 
-  // var count = 0;
-  // var updateRotationValue = 0;
-  // document.addEventListener('keydown', (e) => {
-  //   e = e || window.event;
-  //   if (e.key === 'ArrowUp')
-  //   {
-  //     updateRotationValue = count++;
-  //     console.log("up");
-  //     console.log(updateRotationValue);
-  //   } else if (e.key === 'ArrowDown')
-  //   {
-  //     updateRotationValue = count--;
-  //     console.log('down');
-  //     console.log(updateRotationValue);
-  //   }
-  //   })
-
-  // Setup a ui.
-  webglLessonsUI.setupSlider("#angleX", { value: radToDeg(rotation[0]), slide: updateRotation(0), max: 360 });
-
-  function updateRotation(index) {
-    return function (event, ui) {
-      var angleInDegrees = ui.value;
+  var initialAngle = 40;//value ngikutin rotation x
+  document.addEventListener('keydown', (e) => {
+    e = e || window.event;
+    if (e.key === 'ArrowUp') {
+      console.log('up');
+      var angleInDegrees = initialAngle;
       var angleInRadians = angleInDegrees * Math.PI / 180;
-      rotation[index] = angleInRadians;
+      rotation[0] = angleInRadians;
+
       drawScene();
-    };
-  }
+      initialAngle+=5;
+    } else if (e.key === 'ArrowDown') {
+      console.log('down');
+      var angleInDegrees = initialAngle;
+      var angleInRadians = angleInDegrees * Math.PI / 180;
+      rotation[0] = angleInRadians;
+
+      drawScene();
+      initialAngle-=5;
+    }
+    })
 
   // Draw the scene.
   function drawScene() {

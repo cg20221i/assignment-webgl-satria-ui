@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WebGL Assignment 2</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <!-- vertex shader -->
+    <script  id="vertex-shader-3d" type="x-shader/x-vertex">
+    attribute vec4 a_position; // pada bangun 3D titik yang ada berjumlah 3 (x, y,z )
+    attribute vec4 a_color;
+    uniform mat4 u_matrix;  // karena 3D, maka matrix translasi yang dibutuhkan berukuran 4x4
+    varying vec4 v_color; // varying digunakan untuk mengirim data warna ke vertex shader
+
+    void main() {
+        // Multiply the position by the matrix.
+        gl_Position = u_matrix * a_position; // matrix translali dikali posisi saat ini
+
+        // Pass the color to the fragment shader.
+        v_color = a_color;
+    }
+    </script>
+    <!-- fragment shader -->
+    <script  id="fragment-shader-3d" type="x-shader/x-fragment">
+    precision mediump float;
+
+    // Passed in from the vertex shader.
+    varying vec4 v_color;
+
+    void main() {
+        gl_FragColor = v_color;
+    }
+    </script><!--
+    for most samples webgl-utils only provides shader compiling/linking and
+    canvas resizing because why clutter the examples with code that's the same in every sample.
+    See https://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
+    and https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+    for webgl-utils, m3, m4, and webgl-lessons-ui.
+    -->
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-lessons-ui.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
