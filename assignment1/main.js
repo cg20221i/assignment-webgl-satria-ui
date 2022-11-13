@@ -12,7 +12,7 @@ var gl = canvas.getContext("webgl");
  * D (  0.0,  1.0)
  */
 
-var vertices = [   
+var vertices = [
     // number 0 outer
     -0.7 -0.1, 0.3, //start
     -0.7 -0.1, -0.2, //end
@@ -141,7 +141,7 @@ gl.clearColor(0.0, 0.0,   0.0,  0.8);
             //Red, Green, Blue, Alpha
 gl.clear(gl.COLOR_BUFFER_BIT);
 
-//draw 0 
+//draw 0
 gl.drawArrays(gl.LINE_LOOP, 0,8);
 gl.drawArrays(gl.LINE_LOOP, 8,4);
 // gl.drawArrays(gl.POINTS, 12,4);
