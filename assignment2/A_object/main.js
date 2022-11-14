@@ -37,15 +37,15 @@ function main() {
     return d * Math.PI / 180;
   }
 
-  var translation = [150, 150, 0];
-  var rotation = [degToRad(40), degToRad(25), degToRad(325)];
+  var translation = [100, 180, 0];
+  var rotation = [degToRad(25), degToRad(25), degToRad(350)];
   var scale = [1, 1, 1];
 
   requestAnimationFrame(drawScene);
 
   drawScene();
 
-  var initialAngle = 40;//value ngikutin rotation x
+  var initialAngle = 25;//value ngikutin rotation x
   document.addEventListener('keydown', (e) => {
     e = e || window.event;
     if (e.key === 'ArrowUp') {
