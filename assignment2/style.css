@@ -10,6 +10,14 @@
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+#lightSource{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 body  {
   /* background-color: #cccccc; */
   background-image: url("https://images6.alphacoders.com/110/1109223.jpg");

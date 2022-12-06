@@ -30,6 +30,10 @@ function main() {
   var colorBuffer = gl.createBuffer();
   // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = colorBuffer)
   gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+  // var uAmbientConstant = gl.getUniformLocation(program, "uAmbientConstant");
+  // var uAmbientIntensity = gl.getUniformLocation(program, "uAmbientIntensity");
+  // gl.uniform3fv(uAmbientConstant, [1.0, 1.0, 1.0]);
+  // gl.uniform1f(uAmbientIntensity, 0.4);
   // Put geometry data into buffer
   setColors(gl);
 
