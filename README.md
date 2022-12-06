@@ -9,6 +9,7 @@ This is the first assignment of Computer Graphics course 2022, creating a 2d obj
 <img src="img/ss.png" alt="Alt text">
 
 # Assignment Project 2
+>note: please run this assignment on chrome (firefox not working properly).
 
 Redefine the vertices data of the two digits and two alphabets so they are extruded into 3D objects. In other words, equip the vertices data with z values.<br>
 
